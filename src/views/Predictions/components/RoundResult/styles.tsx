@@ -116,13 +116,13 @@ const getBackgroundColor = ({
 
 const Background = styled(Box)<RoundResultBoxProps>`
   background: ${getBackgroundColor};
-  border-radius: 16px;
+  border-radius: 7px;
   padding: 2px;
 `
 
 const StyledRoundResultBox = styled.div`
   background: ${({ theme }) => theme.card.background};
-  border-radius: 14px;
+  border-radius: 5px;
   padding: 16px;
 `
 

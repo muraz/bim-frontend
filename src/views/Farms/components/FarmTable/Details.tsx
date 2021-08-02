@@ -32,7 +32,7 @@ const Details: React.FC<DetailsProps> = ({ actionPanelToggled }) => {
   return (
     <Container>
       {!isMobile && t('Details')}
-      <ArrowIcon color="primary" toggled={actionPanelToggled} />
+      <ArrowIcon color="#372206" toggled={actionPanelToggled} />
     </Container>
   )
 }

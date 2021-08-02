@@ -27,7 +27,7 @@ import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 
 const ControlContainer = styled.div`
-  display: flex;
+  display: none;
   width: 100%;
   align-items: center;
   position: relative;
@@ -44,6 +44,17 @@ const ControlContainer = styled.div`
   }
 `
 
+const BgCover = styled.div`
+    width: 100%;
+    background-image: url("./images/bim/bg-test.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%;
+    background-size: contain;
+    transition: all .3s ease-in-out;
+    animation: slide-bottom-money 4s ease-out .5s infinite alternate both;
+    background-position: 75.5% 31.31%, 58.5% 43.77%, 54.25% 46.885%;
+`
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -72,6 +83,7 @@ const FilterContainer = styled.div`
   }
 `
 
+
 const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
@@ -93,11 +105,46 @@ const ViewControls = styled.div`
   }
 `
 
-const StyledImage = styled(Image)`
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 58px;
+const StyledImage = styled.div`
+  width: 100%;
+  height: 380px;
+  display: block;
+  background-image: url("./images/bim/bg-footer.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
 `
+
+const FloatMoney = styled.div`
+display: block;
+background-repeat: no-repeat;
+background-position: center bottom;
+height: 100px;
+background-size: contain;
+background-image: url("./images/bim/money.png");
+position: relative;
+z-index: 1;
+animation: slide-bottom-money 2s ease-out .5s infinite alternate both;
+margin-bottom: -90px;
+`
+
+const FooterTitle = styled.div`
+   text-align: center;
+   display: block;
+   width: 100%;
+   font: 600 120px/1 Sigmar One;
+   color: #952210;
+   margin-bottom: 20px;
+
+`
+
+const FloatImage = styled(Image)`
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+`
+
 const NUMBER_OF_FARMS_VISIBLE = 12
 
 const Farms: React.FC = () => {
@@ -171,7 +218,7 @@ const Farms: React.FC = () => {
     setQuery(event.target.value)
   }
 
-  const loadMoreRef = useRef<HTMLDivElement>(null)
+  // const loadMoreRef = useRef<HTMLDivElement>(null)
 
   const [numberOfFarmsVisible, setNumberOfFarmsVisible] = useState(NUMBER_OF_FARMS_VISIBLE)
   const [observerIsSet, setObserverIsSet] = useState(false)
@@ -229,23 +276,23 @@ const Farms: React.FC = () => {
     numberOfFarmsVisible,
   ])
 
-  useEffect(() => {
-    const showMoreFarms = (entries) => {
-      const [entry] = entries
-      if (entry.isIntersecting) {
-        setNumberOfFarmsVisible((farmsCurrentlyVisible) => farmsCurrentlyVisible + NUMBER_OF_FARMS_VISIBLE)
-      }
-    }
+  // useEffect(() => {
+  //   const showMoreFarms = (entries) => {
+  //     const [entry] = entries
+  //     if (entry.isIntersecting) {
+  //       setNumberOfFarmsVisible((farmsCurrentlyVisible) => farmsCurrentlyVisible + NUMBER_OF_FARMS_VISIBLE)
+  //     }
+  //   }
 
-    if (!observerIsSet) {
-      const loadMoreObserver = new IntersectionObserver(showMoreFarms, {
-        rootMargin: '0px',
-        threshold: 1,
-      })
-      loadMoreObserver.observe(loadMoreRef.current)
-      setObserverIsSet(true)
-    }
-  }, [farmsStakedMemoized, observerIsSet])
+  //   if (!observerIsSet) {
+  //     const loadMoreObserver = new IntersectionObserver(showMoreFarms, {
+  //       rootMargin: '0px',
+  //       threshold: 1,
+  //     })
+  //     // loadMoreObserver.observe(loadMoreRef.current)
+  //     // setObserverIsSet(true)
+  //   }
+  // }, [farmsStakedMemoized, observerIsSet])
 
   const rowData = farmsStakedMemoized.map((farm) => {
     const { token, quoteToken } = farm
@@ -344,14 +391,18 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      <PageHeader>
-        <Heading as="h1" scale="xxl" color="secondary" mb="24px">
+
+      <PageHeader background="linear-gradient(to right, rgba(255, 196, 38, 0.47) 0%, rgba(250, 176, 22, 0.12) 100%);">
+        <FloatImage src="./images/bim/farm-icon.png" width={85} height={65} />
+        <Heading as="h1" scale="xl" color="#775211" mb="0px">
           {t('Farms')}
         </Heading>
-        <Heading scale="lg" color="text">
+        <Heading scale="md" color="#775211">
           {t('Stake Liquidity Pool (LP) tokens to earn.')}
         </Heading>
       </PageHeader>
+      <BgCover>
+        <div> </div>
       <Page>
         <ControlContainer>
           <ViewControls>
@@ -397,10 +448,23 @@ const Farms: React.FC = () => {
             </LabelWrapper>
           </FilterContainer>
         </ControlContainer>
-        {renderContent()}
-        <div ref={loadMoreRef} />
-        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+       
+       
+       
+         {renderContent()}
+        {/* <div ref={loadMoreRef} /> */}
+        {/* <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} /> */}
+       
       </Page>
+      </BgCover>
+      <FooterTitle>
+        <div>DOGSE</div>
+        <Heading color="#372206">
+          {t('You’ll never use the dollar again')}
+        </Heading>
+      </FooterTitle>
+      <FloatMoney><div>&nbsp;</div></FloatMoney>
+      <StyledImage><div>&nbsp;</div></StyledImage>
     </>
   )
 }

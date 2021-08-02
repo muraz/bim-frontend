@@ -152,6 +152,15 @@ const OpenRoundCard: React.FC<OpenRoundCardProps> = ({
                   {t('Enter UP')}
                 </Button>
                 <Button
+                  variant="primary"
+                  width="100%"
+                  onClick={() => handleSetPosition(BetPosition.BULL)}
+                  mb="4px"
+                  disabled={!canEnterPosition || isBufferPhase}
+                >
+                  {t('Enter DRAW')}
+                </Button>
+                <Button
                   variant="danger"
                   width="100%"
                   onClick={() => handleSetPosition(BetPosition.BEAR)}

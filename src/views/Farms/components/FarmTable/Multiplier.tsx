@@ -13,12 +13,17 @@ export interface MultiplierProps {
 
 const MultiplierWrapper = styled.div`
   color: ${({ theme }) => theme.colors.text};
-  width: 36px;
-  text-align: right;
+  display: inline-block;
+  text-align: center;
   margin-right: 14px;
+  background-color: #ffc426;
+  color: #372206;
+  border-radius: 10px;
+  padding: 2px 5px;
+  width: 40px;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    text-align: left;
+    text-align: center;
     margin-right: 0;
   }
 `

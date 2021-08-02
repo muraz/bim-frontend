@@ -25,7 +25,7 @@ interface LiveRoundCardProps {
 }
 
 const GradientBorder = styled.div`
-  background: linear-gradient(180deg, #53dee9 0%, #7645d9 100%);
+  background: linear-gradient(180deg, #775211 0%, #7645d9 100%);
   border-radius: 16px;
   padding: 1px;
 `
@@ -96,18 +96,20 @@ const LiveRoundCard: React.FC<LiveRoundCardProps> = ({
               {t('Last Price')}
             </Text>
             <Flex alignItems="center" justifyContent="space-between" mb="16px" height="36px">
+          
               <div ref={targetRef}>
                 <TooltipText bold color={priceColor} fontSize="24px" style={{ minHeight: '36px' }}>
                   {price.gt(0) ? `$${countUp}` : <Skeleton height="36px" width="94px" />}
                 </TooltipText>
               </div>
-              <PositionTag betPosition={isBull ? BetPosition.BULL : BetPosition.BEAR}>
+              {/* <PositionTag betPosition={isBull ? BetPosition.BULL : BetPosition.BEAR}>
                 {formatUsd(priceDifference)}
-              </PositionTag>
+              </PositionTag> */}
             </Flex>
-            {lockPrice && <LockPriceRow lockPrice={lockPrice} />}
-            <PrizePoolRow totalAmount={totalAmount} />
+            {/* {lockPrice && <LockPriceRow lockPrice={lockPrice} />}
+            <PrizePoolRow totalAmount={totalAmount} /> */}
           </RoundResultBox>
+  
           <MultiplierArrow
             betAmount={betAmount}
             multiplier={bearMultiplier}

@@ -14,10 +14,10 @@ export interface ITableProps {
 
 const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
-  width: 100%;
+  width: 80%;
   background: ${({ theme }) => theme.card.background};
   border-radius: 16px;
-  margin: 16px 0px;
+  margin: 16px auto;
 `
 
 const TableWrapper = styled.div`
@@ -42,6 +42,12 @@ const TableBody = styled.tbody`
     td {
       font-size: 16px;
       vertical-align: middle;
+    }
+    td div, span{
+      color: #372206;
+    }
+    td:nth-child(5){
+      display:none;
     }
   }
 `
