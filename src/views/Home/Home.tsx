@@ -25,9 +25,9 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/pan-bg2.svg'), url('/images/pan-bg.svg');
+    background-image: url('./images/bim/bg-test.png'), url('/images/pan-bg.svg');
     background-position: left center, right center;
-    height: 165px;
+    height: 300px;
     padding-top: 0;
   }
 `
@@ -90,10 +90,10 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <Heading as="h1" scale="xl" mb="24px" color="secondary">
-          {t('PancakeSwap')}
+        <Heading as="h1" scale="xxl" mb="20px" color="#fab016">
+          {t('Doge Village')}
         </Heading>
-        <Text>{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
+        <Text>{t('You’ll never use the dollar again')}</Text>
       </Hero>
       <div>
         <Cards>
