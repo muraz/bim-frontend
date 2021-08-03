@@ -25,7 +25,7 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('./images/bim/bg-test.png'), url('/images/pan-bg.svg');
+    background-image: url('./images/bim/bg-test.png'), url('');
     background-position: left center, right center;
     height: 300px;
     padding-top: 0;
@@ -90,16 +90,19 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <Heading as="h1" scale="xxl" mb="20px" color="#fab016">
+        <Heading as="h1" scale="xxl" mb="20px" color="#000">
           {t('Doge Village')}
         </Heading>
-        <Text>{t('You’ll never use the dollar again')}</Text>
+        <Heading scale="md" color="#775211">
+          {t('You’ll never use the dollar again')}
+        </Heading>
+        {/* <Text>{t('You’ll never use the dollar again')}</Text> */}
       </Hero>
       <div>
-        <Cards>
+        {/* <Cards>
           <FarmStakingCard />
           <PredictionPromotionCard />
-        </Cards>
+        </Cards> */}
         <CTACards>
           <EarnAPRCard />
           <EarnAssetCard />
