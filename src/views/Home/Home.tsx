@@ -99,10 +99,10 @@ const Home: React.FC = () => {
         {/* <Text>{t('You’ll never use the dollar again')}</Text> */}
       </Hero>
       <div>
-        {/* <Cards>
+      <Cards>
           <FarmStakingCard />
           <PredictionPromotionCard />
-        </Cards> */}
+        </Cards> 
         <CTACards>
           <EarnAPRCard />
           <EarnAssetCard />
